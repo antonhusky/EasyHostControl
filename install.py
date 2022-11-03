@@ -6,8 +6,8 @@ def installPhpDialog(packages):
     sel_php_vers = []
 
     print("Enter PHP version to install: [" + avail_php_vers_str + "]")
-    i = 0
-    while i < 1:
+    # i = 0
+    while True:
         ver = input()
         if ver == "":
             if len(sel_php_vers) > 0:
