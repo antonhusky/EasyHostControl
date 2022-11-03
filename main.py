@@ -17,7 +17,7 @@ Choose action:
 9. Install packages
 0. Close
 ''')
-    action = input()
+    action = input().lower()
     match action:
         case "0":
             exit()
