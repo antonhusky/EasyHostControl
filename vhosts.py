@@ -13,13 +13,12 @@ def vhostCreateDialog():
     print("Admin email: (EX: admin@domain.zone)")
     email = input()
     print("Use httpd?: [Y/n] (If no it will use only nginx)")
-    use_https = helpers.boolQuestion("y")
+    use_httpd = helpers.boolQuestion("y")
     print("Use https?: [Y/n] (If no vhost will be available only by http)")
     use_https = helpers.boolQuestion("y")
     print("Use let`s encrypt?: [Y/n] (If no it's generate selfsigned ssl certificate)")
     use_le = helpers.boolQuestion("y")
-    vhostCreate(domain, aliases, email, use_https, use_le)
-    return
+    vhostCreate(domain, aliases, email, use_httpd, use_https, use_le)
 
 def vhostDeleteDialog():
     print("--- vHost deletion dialog started ---")
@@ -28,17 +27,14 @@ def vhostDeleteDialog():
     print("Save files: [Y/n]")
     save_files = helpers.boolQuestion("y")
     vhostDelete(domain, save_files)
-    return
 
 def vhostEnableDialog():
     print("--- vHost enabling dialog started ---")
     vhostToggleDialog("enable")
-    return
 
 def vhostDisableDialog():
     print("--- vHost disabling dialog started ---")
     vhostToggleDialog("disable")
-    return
 
 def vhostToggleDialog(action):
     print("Enter domain name: (EX: domain.zone)")
@@ -53,21 +49,20 @@ def vhostToggleDialog(action):
         vhostEnable(domain, affect_httpd, affect_nginx, affect_certbot)
     else:
         vhostDisable(domain, affect_httpd, affect_nginx, affect_certbot)
-    return
 
 ###
 ### vHosts actions
 ###
 
-def vhostCreate(domain, aliases, use_https, use_le):
+def vhostCreate(domain, aliases, email, use_httpd, use_https, use_le):
     print("vhostCreate action")
     # ToDo
-    return
+    pass
 
 def vhostDelete(domain, save_files):
     print("vhostDelete action")
     # ToDo
-    return
+    pass
 
 def vhostEnable(domain, affect_httpd, affect_nginx, affect_certbot):
     print("vhostEnable action")
@@ -80,7 +75,6 @@ def vhostEnable(domain, affect_httpd, affect_nginx, affect_certbot):
     if affect_certbot == 'y':
         #ToDo
         print("affect_certbot")
-    return
 
 def vhostDisable(domain, affect_httpd, affect_nginx, affect_certbot):
     print("vhostDisable action")
@@ -93,4 +87,3 @@ def vhostDisable(domain, affect_httpd, affect_nginx, affect_certbot):
     if affect_certbot == 'y':
         # ToDo
         print("affect_certbot")
-    return

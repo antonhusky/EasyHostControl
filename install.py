@@ -1,4 +1,6 @@
 import helpers
+import sys
+import subprocess
 
 def installPhpDialog(packages):
     avail_php_vers = ['5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0']
@@ -55,10 +57,9 @@ def installPackagesDialog():
     packages = installPhpDialog(packages)
 
     installPackages(packages)
-    return
 
 def installPackages(packages):
     print("Packages to install:")
     print(packages)
-    #ToDo
-    return
+    # ToDo
+    subprocess.call(['apt install -y'] + packages)

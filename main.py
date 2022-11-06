@@ -1,10 +1,11 @@
 import helpers
 import install
 import vhosts
+import configparser
 
 def configure():
-    #ToDo
-    return
+    # ToDo
+    pass
 
 def mainMenu():
     print('''
@@ -44,7 +45,6 @@ Choose action:
             helpers.getPlatform()
         case _:
             mainMenu()
-    return
 
 def main():
     # ToDo: config loader
@@ -53,6 +53,6 @@ def main():
         mainMenu()
     else:
         mainMenu()
-    return
 
-main()
+if __name__ == "__main__":
+    main()
